@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#3b82f6" />
   <title>Cumpleaños de Christian Joel López Reyes</title>
   <style>
-    /* Temas: oscuro y vibrante */
     [data-theme="dark"]{
       --bg:#0b1220; --panel:#0f172aee; --text:#f8fafc; --muted:#cbd5e1;
       --accent1:#ff6b6b; --accent2:#f59e0b; --accent3:#3b82f6; --accent4:#22c55e;
@@ -28,14 +27,13 @@
         radial-gradient(1200px 800px at 20% 10%, #18223f, var(--bg)),
         radial-gradient(1200px 800px at 80% 90%, #101a36 10%, transparent 70%);
       display:grid;
-      align-items:center;      /* desktop/tablet: centrado */
+      align-items:center;
       justify-items:center;
-      overflow-x:hidden;       /* permite scroll vertical, no corta en X */
+      overflow-x:hidden;
       padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
       min-height: 100vh;
     }
 
-    /* Mesh animado */
     .mesh::before,.mesh::after{
       content:""; position:fixed; inset:-12vmax; filter:blur(70px); opacity:.65; z-index:-2;
       animation: drift 18s ease-in-out infinite alternate;
@@ -52,7 +50,6 @@
     }
     @keyframes drift{0%{transform:translate3d(-3vw,-2vh,0) scale(1)}100%{transform:translate3d(2vw,3vh,0) scale(1.06)}}
 
-    /* Card */
     .card{
       width:min(920px, 92vw);
       background:var(--panel);
@@ -65,9 +62,7 @@
     .card::before{
       content:""; position:absolute; inset:0; padding:1.5px; border-radius:inherit;
       background: conic-gradient(from 120deg, var(--accent1), var(--accent2), var(--accent4), var(--accent3), var(--accent1));
-      -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor; mask-composite: exclude;
       animation: hue 8s linear infinite;
       pointer-events:none;
@@ -96,17 +91,10 @@
       font-weight:900; letter-spacing:.2px; line-height:1.15;
       font-size: clamp(22px, 4.8vw, 40px);
       text-shadow: 0 2px 18px rgba(96,165,250,.40);
-    }
-    .age-chip{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:8px 12px; border-radius:999px; font-weight:800; font-size:14px;
-      color:#1f2937;
-      background: linear-gradient(90deg,#fde68a,#f59e0b);
-      border:1.5px solid #fcd34d;
-      box-shadow: 0 6px 16px rgba(245,158,11,.50);
+      justify-content:center; text-align:center;
     }
 
-    /* Medallón */
+    /* Medallón (desktop/tablet) */
     .age-badge{
       position:absolute; top:18px; right:18px;
       width:96px; height:96px; border-radius:50%;
@@ -128,7 +116,23 @@
     @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
     @keyframes spin{to{transform:rotate(360deg)}}
 
-    .subtitle{margin-top:6px; color:var(--muted); font-size:15px}
+    .subtitle{margin-top:6px; color:var(--muted); font-size:15px; text-align:center}
+
+    /* Countdown */
+    .countdown{
+      display:grid; grid-template-columns:repeat(4,minmax(70px,1fr)); gap:12px;
+      padding:12px; margin:14px 0 4px;
+      border-radius:16px; border:1px solid var(--surface-border);
+      background: linear-gradient(180deg, var(--surface), rgba(255,255,255,.06));
+    }
+    .counter{display:grid; place-items:center; gap:4px}
+    .counter .num{
+      font-weight:900; font-size:clamp(22px,4.8vw,36px);
+      color:#fff; text-shadow:0 2px 14px rgba(96,165,250,.35);
+    }
+    .counter .lbl{
+      font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px;
+    }
 
     .details{display:grid; gap:16px; padding:24px 22px}
     .row{display:grid; gap:12px}
@@ -149,7 +153,7 @@
     .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
     .value{font-size:18px; font-weight:800}
 
-    .cta{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:8px 22px 24px}
+    .cta{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:8px 22px 28px}
     .btn{
       appearance:none;border:none;cursor:pointer;
       border-radius:16px;padding:16px 18px;font-weight:900;font-size:17px;
@@ -161,13 +165,6 @@
     .btn:hover{transform:translateY(-2px); filter:brightness(1.07)}
     .btn:active{transform:translateY(0)}
 
-    .payments{padding:0 22px 24px;border-top:1px dashed rgba(255,255,255,.18);color:var(--muted);font-size:14px}
-    .chips{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
-    .chip{padding:9px 12px;border-radius:999px;font-weight:800;font-size:13px;border:1.5px solid rgba(255,255,255,.26);background:rgba(255,255,255,.18)}
-
-    .note{padding:0 22px 30px;color:var(--muted);font-size:13px}
-
-    /* Confetti */
     .confetti{position:fixed;inset:0;pointer-events:none;z-index:-1}
     .piece{
       position:absolute;width:10px;height:16px;
@@ -178,31 +175,23 @@
     }
     @keyframes fall{0%{transform:translateY(-12vh) rotate(0deg)}100%{transform:translateY(110vh) rotate(720deg)}}
 
-    /* Responsive móvil: anclar arriba para evitar el “recorte del medio” */
     @media (max-width:560px){
-      body{
-        align-items:start;          /* ancla arriba en móvil */
-        min-height:100dvh;          /* alto del viewport dinámico del móvil */
-        padding: 12px 10px 16px;    /* margen cómodo */
-      }
+      body{align-items:start; min-height:100dvh; padding: 12px 10px 16px;}
       .card{width:100%; border-radius:22px}
-      .hero{padding:28px 18px 18px}
+      .hero{padding:26px 16px 18px}
       .title{justify-content:center; text-align:center; font-size: clamp(22px, 6vw, 32px)}
-      .age-chip{margin-top:6px}
-      .age-badge{top:16px; right:16px; width:88px; height:88px}
+      .age-badge{position:static; margin: 10px auto 2px; width:90px; height:90px; box-shadow: 0 14px 28px rgba(245,158,11,.42), inset 0 6px 16px rgba(255,255,255,.50)}
       .age-num{font-size:36px}
-      .hero .watermark{display:none} /* oculta la marca para no saturar en móvil */
-      .details{padding:20px 18px}
+      .hero .watermark{display:none}
+      .countdown{grid-template-columns:repeat(2,1fr)}
+      .details{padding:20px 16px}
       .item{grid-template-columns:36px 1fr; padding:12px}
       .icon{width:36px;height:36px}
       .value{font-size:16px}
-      .cta{grid-template-columns:1fr; padding:10px 18px 22px}
+      .cta{grid-template-columns:1fr; padding:10px 16px 24px}
       .btn{padding:14px 16px; font-size:16px}
-      .payments{padding:0 18px 22px}
-      .note{padding:0 18px 26px}
     }
 
-    /* Botón toggle de tema */
     .mode-toggle{
       position:fixed; top:14px; right:14px; z-index:3;
       padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.30);
@@ -220,7 +209,6 @@
       <div class="watermark" aria-hidden="true">42</div>
       <div class="title">
         <span>🎉 Cumpleaños de Christian Joel López Reyes</span>
-        <span class="age-chip">42 años</span>
       </div>
 
       <div class="age-badge" aria-label="42 años">
@@ -229,6 +217,26 @@
       </div>
 
       <div class="subtitle">¡Celebremos en familia y con buenas vibras!</div>
+
+      <!-- Contador hasta el evento -->
+      <div class="countdown" aria-live="polite" aria-label="Cuenta regresiva">
+        <div class="counter">
+          <div id="dd" class="num">00</div>
+          <div class="lbl">Días</div>
+        </div>
+        <div class="counter">
+          <div id="hh" class="num">00</div>
+          <div class="lbl">Horas</div>
+        </div>
+        <div class="counter">
+          <div id="mm" class="num">00</div>
+          <div class="lbl">Min</div>
+        </div>
+        <div class="counter">
+          <div id="ss" class="num">00</div>
+          <div class="lbl">Seg</div>
+        </div>
+      </div>
     </section>
 
     <section class="details">
@@ -272,7 +280,6 @@
     </section>
 
     <section class="cta">
-      <!-- Tu número: +51 994160886 -->
       <a class="btn btn-primary"
          href="https://wa.me/51994160886?text=Hola!%20Confirmo%20mi%20asistencia%20al%20cumple%20de%20Christian%20Joel%20L%C3%B3pez%20Reyes%20(14%20de%20febrero%20-%209pm)."
          target="_blank" rel="noopener" aria-label="Confirmar asistencia por WhatsApp">
@@ -284,27 +291,13 @@
         📍 Abrir Maps
       </a>
     </section>
-
-    <section class="payments">
-      <p><strong>Opciones de regalo y pago</strong></p>
-      <div class="chips">
-        <span class="chip">🎁 Regalito</span>
-        <span class="chip">💜 Yape</span>
-        <span class="chip">💙 Plin</span>
-        <span class="chip">💳 Transferencia</span>
-      </div>
-    </section>
-
-    <section class="note">
-      Para compartir por WhatsApp: abre esta página y toma una captura, o envía el enlace si la subes a la web.
-    </section>
   </main>
 
   <script>
     // Movimiento reducido
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Confetti (menos en móvil)
+    // Confetti
     const isMobile = window.matchMedia('(max-width: 560px)').matches;
     if(!reduced){
       const container = document.querySelector('.confetti');
@@ -329,7 +322,7 @@
       }
     }
 
-    // Toggle de tema Vibrante / Oscuro
+    // Toggle de tema
     const toggle = document.getElementById('themeToggle');
     toggle.addEventListener('click', () => {
       const html = document.documentElement;
@@ -337,6 +330,45 @@
       html.setAttribute('data-theme', next);
       toggle.textContent = next === 'vibrant' ? '🌞 Vibrante' : '🌙 Oscuro';
     });
+
+    // Cuenta regresiva: ajusta la fecha/hora si lo necesitas
+    // Usamos hora local de Lima (-05:00). Cambia el offset si es otra zona.
+    const target = new Date('2026-02-14T21:00:00-05:00').getTime();
+
+    const ddEl = document.getElementById('dd');
+    const hhEl = document.getElementById('hh');
+    const mmEl = document.getElementById('mm');
+    const ssEl = document.getElementById('ss');
+
+    function pad(n){ return n.toString().padStart(2,'0'); }
+
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours * (1000*60*60);
+      const mins = Math.floor(diff / (1000*60));
+      diff -= mins * (1000*60);
+      const secs = Math.floor(diff / 1000);
+
+      ddEl.textContent = pad(days);
+      hhEl.textContent = pad(hours);
+      mmEl.textContent = pad(mins);
+      ssEl.textContent = pad(secs);
+
+      if (target - now <= 0) {
+        // Evento llegado: resalta mensaje
+        ddEl.textContent = '00';
+        hhEl.textContent = '00';
+        mmEl.textContent = '00';
+        ssEl.textContent = '00';
+      }
+    }
+    tick();
+    setInterval(tick, 1000);
   </script>
 </body>
 </html>
