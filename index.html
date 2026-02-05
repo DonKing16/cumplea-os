@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="vibrant">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#3b82f6" />
+  <meta name="theme-color" content="#60a5fa" />
   <title>Cumpleaños de Christian Joel López Reyes</title>
   <style>
-    [data-theme="dark"]{
-      --bg:#0b1220; --panel:#0f172aee; --text:#f8fafc; --muted:#cbd5e1;
-      --accent1:#ff6b6b; --accent2:#f59e0b; --accent3:#3b82f6; --accent4:#22c55e;
-      --surface: rgba(255,255,255,.06); --surface-border: rgba(255,255,255,.10);
-    }
-    [data-theme="vibrant"]{
-      --bg:#0a1840; --panel:#0f172af2; --text:#ffffff; --muted:#e5e7eb;
-      --accent1:#ff7eb3; --accent2:#f59e0b; --accent3:#60a5fa; --accent4:#22c55e;
-      --surface: rgba(255,255,255,.16); --surface-border: rgba(255,255,255,.24);
+    [data-theme="light"]{
+      --bg:#f6f9ff;
+      --panel:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e5e7eb;
+      --accent1:#f97316;
+      --accent2:#2563eb;
+      --accent3:#10b981;
+      --accent4:#ef4444;
+      --accent5:#a855f7;
+      --surface:#f1f5f9;
     }
 
     *{box-sizing:border-box}
@@ -24,219 +27,179 @@
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans";
       color:var(--text);
       background:
-        radial-gradient(1200px 800px at 20% 10%, #18223f, var(--bg)),
-        radial-gradient(1200px 800px at 80% 90%, #101a36 10%, transparent 70%);
-      display:grid;
-      align-items:center;
-      justify-items:center;
+        radial-gradient(1200px 800px at 10% 0%, #eef2ff 0%, #f6f9ff 55%, #ffffff 100%),
+        radial-gradient(1200px 800px at 90% 100%, #e0f2fe 0%, #ffffff 60%);
+      display:grid; align-items:center; justify-items:center;
       overflow-x:hidden;
-      padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
-      min-height: 100vh;
+      padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+      min-height:100vh;
     }
-
-    .mesh::before,.mesh::after{
-      content:""; position:fixed; inset:-12vmax; filter:blur(70px); opacity:.65; z-index:-2;
-      animation: drift 18s ease-in-out infinite alternate;
-      background:
-        radial-gradient(closest-side at 20% 30%, rgba(245,158,11,.35), transparent 60%),
-        radial-gradient(closest-side at 80% 20%, rgba(96,165,250,.45), transparent 60%),
-        radial-gradient(closest-side at 30% 80%, rgba(255,126,179,.35), transparent 60%);
-    }
-    .mesh::after{
-      animation-duration: 24s;
-      background:
-        radial-gradient(closest-side at 75% 75%, rgba(34,197,94,.32), transparent 65%),
-        radial-gradient(closest-side at 40% 60%, rgba(245,158,11,.28), transparent 65%);
-    }
-    @keyframes drift{0%{transform:translate3d(-3vw,-2vh,0) scale(1)}100%{transform:translate3d(2vw,3vh,0) scale(1.06)}}
 
     .card{
-      width:min(920px, 92vw);
+      width:min(920px,92vw);
       background:var(--panel);
-      border-radius:28px;
-      backdrop-filter: blur(12px);
+      border-radius:22px;
       position:relative;
-      box-shadow: 0 30px 70px rgba(0,0,0,.55);
       overflow:hidden;
+      box-shadow: 0 14px 32px rgba(2,6,23,.08), 0 2px 8px rgba(2,6,23,.05);
     }
     .card::before{
       content:""; position:absolute; inset:0; padding:1.5px; border-radius:inherit;
-      background: conic-gradient(from 120deg, var(--accent1), var(--accent2), var(--accent4), var(--accent3), var(--accent1));
+      background: conic-gradient(from 140deg, var(--accent2), var(--accent3), var(--accent1), var(--accent5), var(--accent2));
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude;
-      animation: hue 8s linear infinite;
-      pointer-events:none;
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none; opacity:.7;
     }
-    @keyframes hue{to{filter:hue-rotate(360deg)}}
 
     .hero{
       position:relative;
-      padding:42px 22px 20px;
+      padding:36px 18px 18px;
       background:
-        radial-gradient(600px 220px at 85% -60%, rgba(245,158,11,.30), transparent 70%),
-        radial-gradient(600px 220px at 10% -20%, rgba(96,165,250,.32), transparent 70%);
-      border-bottom:1px solid rgba(255,255,255,.14);
-      overflow:hidden;
+        radial-gradient(900px 280px at 15% -50%, rgba(37,99,235,.16), transparent 70%),
+        radial-gradient(900px 280px at 95% -80%, rgba(249,115,22,.18), transparent 70%),
+        linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      border-bottom:1px solid var(--border);
     }
-    .hero .watermark{
-      position:absolute; right:110px; bottom:-24px;
-      font-weight:900; font-size: clamp(120px, 21vw, 200px);
-      line-height:1; color:#ffffff20;
-      text-shadow: 0 0 40px rgba(245,158,11,.28);
-      pointer-events:none; user-select:none;
+
+    .age-badge{
+      --sz: 70px;
+      position:absolute; top:10px; right:10px; width:var(--sz); height:var(--sz);
+      border-radius:50%; display:grid; place-items:center; text-align:center;
+      color:#1f2937; font-weight:900;
+      background: radial-gradient(120% 120% at 30% 30%, #fff7cc, #facc15);
+      border:2px solid #fde68a;
+      box-shadow: 0 10px 22px rgba(250,204,21,.35), inset 0 8px 18px rgba(255,255,255,.65);
+      z-index:1;
     }
+    .age-num{font-size:26px; line-height:1; -webkit-text-stroke:.4px #fef3c7}
+    .age-txt{font-size:10px; letter-spacing:.6px; text-transform:uppercase}
 
     .title{
-      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
-      font-weight:900; letter-spacing:.2px; line-height:1.15;
-      font-size: clamp(22px, 4.8vw, 40px);
-      text-shadow: 0 2px 18px rgba(96,165,250,.40);
-      justify-content:center; text-align:center;
+      padding-right: calc(10px + 70px);
+      display:flex; justify-content:center; text-align:center; gap:10px; flex-wrap:wrap;
+      font-weight:900; letter-spacing:.2px; line-height:1.18;
+      font-size: clamp(22px, 4.6vw, 36px);
+      color:#0b1324;
+    }
+    .subtitle{ margin-top:8px; color:var(--muted); font-size:15px; text-align:center }
+
+    /* CONTADOR: fondo colorido y alto contraste */
+    .countbox{
+      margin:14px auto 6px;
+      border-radius:16px; padding:16px;
+      max-width:620px; position:relative;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      box-shadow:
+        0 12px 24px rgba(37,99,235,.25),
+        inset 0 1px 0 rgba(255,255,255,.35);
+      border: 1px solid rgba(255,255,255,.35);
+    }
+    .countgrid{
+      display:grid; grid-template-columns:repeat(4,1fr); align-items:center; justify-items:center;
+      column-gap:18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    .cell{
+      position:relative; display:grid; justify-items:center; gap:6px; min-width:72px;
+    }
+    .cell:not(:last-child)::after{
+      content: ":"; position:absolute; top:50%; right:-11px; transform:translateY(-64%);
+      font-weight:900; font-size: clamp(22px, 5.8vw, 38px);
+      color:#ffffff; text-shadow: 0 0 10px rgba(255,255,255,.45);
+      animation: blink 1s steps(1,end) infinite;
+    }
+    .num{
+      font-weight:900; font-size: clamp(24px, 6vw, 40px); line-height:1;
+      color:#ffffff; text-shadow: 0 2px 14px rgba(0,0,0,.35), 0 0 10px rgba(255,255,255,.25);
+      min-width: 2ch; text-align:center;
+    }
+    .lbl{
+      font-size:12px; color:#e2e8f0; text-transform:uppercase; letter-spacing:.5px;
+    }
+    @keyframes blink{50%{opacity:.35}}
+
+    .event-today{
+      display:none; margin:12px auto 6px; padding:12px 14px; text-align:center;
+      font-weight:900; border-radius:14px;
+      background: linear-gradient(90deg,#fef08a,#f59e0b); color:#1f2937;
+      border:1px solid #fde68a; box-shadow: 0 10px 20px rgba(245,158,11,.25);
+      max-width:620px;
     }
 
-    /* Medallón (desktop/tablet) */
-    .age-badge{
-      position:absolute; top:18px; right:18px;
-      width:96px; height:96px; border-radius:50%;
-      display:grid; place-items:center; text-align:center;
-      color:#0b1220; font-weight:900;
-      background: radial-gradient(120% 120% at 30% 30%, #fffbe6, #f59e0b);
-      border:2px solid #fcd34d;
-      box-shadow: 0 18px 34px rgba(245,158,11,.46), inset 0 8px 18px rgba(255,255,255,.55);
-      animation: pulse 2.2s ease-in-out infinite;
-      z-index:2;
-    }
-    .age-badge::before{
-      content:""; position:absolute; inset:-2px; border-radius:inherit;
-      background: conic-gradient(from 0deg, #fff0 0 60%, #ffffff90 70% 80%, #fff0 100%);
-      animation: spin 6s linear infinite; mix-blend-mode: soft-light;
-    }
-    .age-num{font-size:40px; line-height:1; -webkit-text-stroke:.6px #fef3c7}
-    .age-txt{font-size:13px; letter-spacing:.6px; text-transform:uppercase}
-    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-    @keyframes spin{to{transform:rotate(360deg)}}
-
-    .subtitle{margin-top:6px; color:var(--muted); font-size:15px; text-align:center}
-
-    /* Countdown */
-    .countdown{
-      display:grid; grid-template-columns:repeat(4,minmax(70px,1fr)); gap:12px;
-      padding:12px; margin:14px 0 4px;
-      border-radius:16px; border:1px solid var(--surface-border);
-      background: linear-gradient(180deg, var(--surface), rgba(255,255,255,.06));
-    }
-    .counter{display:grid; place-items:center; gap:4px}
-    .counter .num{
-      font-weight:900; font-size:clamp(22px,4.8vw,36px);
-      color:#fff; text-shadow:0 2px 14px rgba(96,165,250,.35);
-    }
-    .counter .lbl{
-      font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px;
-    }
-
-    .details{display:grid; gap:16px; padding:24px 22px}
+    .details{display:grid; gap:14px; padding:18px}
     .row{display:grid; gap:12px}
     .item{
-      display:grid; grid-template-columns: 40px 1fr; gap:12px; align-items:center;
-      padding:14px; border-radius:16px;
-      background: linear-gradient(180deg, var(--surface), rgba(255,255,255,.06));
-      border:1px solid var(--surface-border);
+      display:grid; grid-template-columns:40px 1fr; gap:12px; align-items:center;
+      padding:12px; border-radius:14px;
+      background: linear-gradient(180deg,#ffffff,#f8fafc);
+      border:1px solid var(--border);
+      box-shadow: 0 6px 14px rgba(2,6,23,.04);
     }
     .icon{
-      width:40px;height:40px;border-radius:12px;
-      display:grid;place-items:center;
-      background: rgba(255,255,255,.20);
-      border:1px solid rgba(255,255,255,.26);
-      box-shadow: inset 0 0 10px rgba(255,255,255,.14);
-      font-size:19px;
+      width:40px;height:40px;border-radius:10px; display:grid; place-items:center;
+      background: #e0f2fe; border:1px solid #bae6fd; font-size:19px;
     }
-    .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
-    .value{font-size:18px; font-weight:800}
+    .label{color:#64748b; font-size:12px; text-transform:uppercase; letter-spacing:.4px}
+    .value{font-size:18px; font-weight:800; color:#0b1324}
 
-    .cta{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:8px 22px 28px}
+    .cta{display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:6px 18px 18px}
     .btn{
-      appearance:none;border:none;cursor:pointer;
-      border-radius:16px;padding:16px 18px;font-weight:900;font-size:17px;
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      text-decoration:none; transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+      appearance:none; border:none; cursor:pointer;
+      border-radius:14px; padding:14px 16px; font-weight:900; font-size:16px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      text-decoration:none; transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
     }
-    .btn-primary{color:#041a10;background:linear-gradient(90deg,#22c55e,#86efac);box-shadow:0 12px 28px rgba(34,197,94,.50)}
-    .btn-secondary{color:#0b1220;background:linear-gradient(90deg,#3b82f6,#93c5fd);box-shadow:0 12px 28px rgba(96,165,250,.50)}
-    .btn:hover{transform:translateY(-2px); filter:brightness(1.07)}
-    .btn:active{transform:translateY(0)}
+    .btn-primary{color:#052e16; background:linear-gradient(90deg,#10b981,#86efac); box-shadow:0 10px 20px rgba(16,185,129,.25)}
+    .btn-secondary{color:#0b1324; background:linear-gradient(90deg,#60a5fa,#93c5fd); box-shadow:0 10px 20px rgba(96,165,250,.25)}
+    .btn:hover{transform:translateY(-2px); filter:brightness(1.05)}
 
-    .confetti{position:fixed;inset:0;pointer-events:none;z-index:-1}
+    .confetti{position:fixed; inset:0; pointer-events:none; z-index:-1}
     .piece{
-      position:absolute;width:10px;height:16px;
+      position:absolute; width:10px; height:16px; border-radius:3px;
       transform:translateY(-120vh) rotate(0deg);
       animation: fall var(--dur) linear var(--delay) infinite;
-      border-radius:3px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+      box-shadow: 0 2px 6px rgba(2,6,23,.15);
     }
-    @keyframes fall{0%{transform:translateY(-12vh) rotate(0deg)}100%{transform:translateY(110vh) rotate(720deg)}}
+    @keyframes fall{0%{transform:translateY(-12vh) rotate(0)}100%{transform:translateY(110vh) rotate(720deg)}}
 
     @media (max-width:560px){
-      body{align-items:start; min-height:100dvh; padding: 12px 10px 16px;}
-      .card{width:100%; border-radius:22px}
-      .hero{padding:26px 16px 18px}
-      .title{justify-content:center; text-align:center; font-size: clamp(22px, 6vw, 32px)}
-      .age-badge{position:static; margin: 10px auto 2px; width:90px; height:90px; box-shadow: 0 14px 28px rgba(245,158,11,.42), inset 0 6px 16px rgba(255,255,255,.50)}
-      .age-num{font-size:36px}
-      .hero .watermark{display:none}
-      .countdown{grid-template-columns:repeat(2,1fr)}
-      .details{padding:20px 16px}
+      body{align-items:start; min-height:100dvh; padding:12px}
+      .card{border-radius:18px}
+      .hero{padding:24px 14px 14px}
+      .age-badge{--sz:60px}
+      .title{padding-right: calc(10px + 60px); font-size: clamp(22px, 6vw, 30px)}
+      .countbox{padding:12px}
+      .cell{min-width:64px}
+      .details{padding:14px}
       .item{grid-template-columns:36px 1fr; padding:12px}
       .icon{width:36px;height:36px}
-      .value{font-size:16px}
-      .cta{grid-template-columns:1fr; padding:10px 16px 24px}
-      .btn{padding:14px 16px; font-size:16px}
-    }
-
-    .mode-toggle{
-      position:fixed; top:14px; right:14px; z-index:3;
-      padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.30);
-      background: rgba(255,255,255,.22); color:#111; font-weight:800; font-size:13px;
-      backdrop-filter: blur(8px); cursor:pointer;
+      .cta{grid-template-columns:1fr; padding:10px 14px 16px}
+      .btn{padding:14px 16px}
     }
   </style>
 </head>
 <body class="mesh">
-  <button id="themeToggle" class="mode-toggle" aria-label="Cambiar tema">🌞 Vibrante</button>
   <div class="confetti" aria-hidden="true"></div>
 
   <main class="card" role="region" aria-label="Invitación de cumpleaños">
     <section class="hero">
-      <div class="watermark" aria-hidden="true">42</div>
-      <div class="title">
-        <span>🎉 Cumpleaños de Christian Joel López Reyes</span>
-      </div>
-
       <div class="age-badge" aria-label="42 años">
         <div class="age-num">42</div>
         <div class="age-txt">años</div>
       </div>
 
-      <div class="subtitle">¡Celebremos en familia y con buenas vibras!</div>
+      <div class="title">🎉 Cumpleaños de Christian Joel López Reyes</div>
+      <div class="subtitle">¡Celebremos en familia y amigos con buenas vibras!</div>
 
-      <!-- Contador hasta el evento -->
-      <div class="countdown" aria-live="polite" aria-label="Cuenta regresiva">
-        <div class="counter">
-          <div id="dd" class="num">00</div>
-          <div class="lbl">Días</div>
-        </div>
-        <div class="counter">
-          <div id="hh" class="num">00</div>
-          <div class="lbl">Horas</div>
-        </div>
-        <div class="counter">
-          <div id="mm" class="num">00</div>
-          <div class="lbl">Min</div>
-        </div>
-        <div class="counter">
-          <div id="ss" class="num">00</div>
-          <div class="lbl">Seg</div>
+      <div id="countWrap" class="countbox" aria-live="polite" aria-label="Cuenta regresiva">
+        <div class="countgrid">
+          <div class="cell"><div id="dd" class="num">00</div><div class="lbl">Días</div></div>
+          <div class="cell"><div id="hh" class="num">00</div><div class="lbl">Horas</div></div>
+          <div class="cell"><div id="mm" class="num">00</div><div class="lbl">Min</div></div>
+          <div class="cell"><div id="ss" class="num">00</div><div class="lbl">Seg</div></div>
         </div>
       </div>
+      <div id="eventToday" class="event-today">🎉 HOY CELEBRAMOS, ¡NO TE LO PIERDAS!</div>
     </section>
 
     <section class="details">
@@ -256,7 +219,7 @@
             <div class="value">
               Av. Nicolás Arriola 2131, San Luis ·
               <a href="https://www.google.com/maps/search/?api=1&query=Avenida+Nicolas+Arriola+2131,+San+Luis"
-                 target="_blank" rel="noopener" style="color:#93c5fd;text-decoration:underline">Ver ubicación</a>
+                 target="_blank" rel="noopener" style="color:#2563eb;text-decoration:underline">Ver ubicación</a>
             </div>
           </div>
         </div>
@@ -265,7 +228,7 @@
           <div class="icon">🎂</div>
           <div>
             <div class="label">Plan</div>
-            <div class="value">Música, piqueos y pastel. ¡Ven con ganas de celebrar!</div>
+            <div class="value">Música, tragos, piqueos, diversión y pastel. ¡Ven con ganas de celebrar!</div>
           </div>
         </div>
 
@@ -273,16 +236,14 @@
           <div class="icon">🎁</div>
           <div>
             <div class="label">Regalos</div>
-            <div class="value">Regalito bienvenido 😉 También Yape, Plin y transferencia (jiji).</div>
+            <div class="value">Regalito bienvenido, También Yape, Plin y transferencia 😉.</div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="cta">
-      <a class="btn btn-primary"
-         href="https://wa.me/51994160886?text=Hola!%20Confirmo%20mi%20asistencia%20al%20cumple%20de%20Christian%20Joel%20L%C3%B3pez%20Reyes%20(14%20de%20febrero%20-%209pm)."
-         target="_blank" rel="noopener" aria-label="Confirmar asistencia por WhatsApp">
+      <a id="waBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener" aria-label="Confirmar por WhatsApp">
         ✅ Confirmar por WhatsApp
       </a>
       <a class="btn btn-secondary"
@@ -294,77 +255,93 @@
   </main>
 
   <script>
-    // Movimiento reducido
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Configuración
+    const venue = 'Av. Nicolás Arriola 2131, San Luis';
+    const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=Avenida+Nicolas+Arriola+2131,+San+Luis';
+    const target = new Date('2026-02-14T21:00:00-05:00'); // Lima -05:00
+    const eventDurationMs = 6 * 60 * 60 * 1000;
 
     // Confetti
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobile = window.matchMedia('(max-width: 560px)').matches;
     if(!reduced){
       const container = document.querySelector('.confetti');
-      const colors = ['#ff7eb3','#f59e0b','#60a5fa','#22c55e','#a78bfa','#f472b6'];
+      const colors = ['#f97316','#60a5fa','#10b981','#ef4444','#a855f7','#f472b6'];
       const pieces = isMobile ? 40 : 90;
       for(let i=0;i<pieces;i++){
         const el = document.createElement('div');
         el.className = 'piece';
         const size = 8 + Math.random()*10;
-        const left = Math.random()*100;
-        const delay = Math.random()*6;
-        const dur = 6 + Math.random()*6;
         el.style.width = size + 'px';
         el.style.height = (size*1.6) + 'px';
-        el.style.left = left + 'vw';
+        el.style.left = (Math.random()*100) + 'vw';
         el.style.background = colors[i % colors.length];
         el.style.transform = `translateY(-120vh) rotate(${Math.random()*360}deg)`;
-        el.style.setProperty('--delay', delay + 's');
-        el.style.setProperty('--dur', dur + 's');
+        el.style.setProperty('--delay', (Math.random()*6) + 's');
+        el.style.setProperty('--dur', (6 + Math.random()*6) + 's');
         el.style.opacity = (0.85 + Math.random()*0.15).toFixed(2);
         container.appendChild(el);
       }
     }
 
-    // Toggle de tema
-    const toggle = document.getElementById('themeToggle');
-    toggle.addEventListener('click', () => {
-      const html = document.documentElement;
-      const next = html.getAttribute('data-theme') === 'vibrant' ? 'dark' : 'vibrant';
-      html.setAttribute('data-theme', next);
-      toggle.textContent = next === 'vibrant' ? '🌞 Vibrante' : '🌙 Oscuro';
-    });
+    // WhatsApp dinámico
+    const waBtn = document.getElementById('waBtn');
+    function setWhatsAppLink(mode){
+      let msg;
+      if(mode === 'today'){
+        msg = `¡Hola! Nos vemos HOY en el cumpleaños 42 de Christian Joel López Reyes a las 9:00 pm. Confirmo mi asistencia. Ubicación: ${mapsUrl}`;
+        waBtn.textContent = '✅ Confirmo (Hoy)';
+      } else if(mode === 'arriving'){
+        msg = `¡Estoy llegando al cumpleaños 42 de Christian Joel López Reyes! 🚗💨 Si necesitas algo, avísame. Ubicación: ${mapsUrl}`;
+        waBtn.textContent = '🚗 ¡Estoy llegando!';
+      } else {
+        msg = `¡Hola! Confirmo mi asistencia al cumpleaños 42 de Christian Joel López Reyes el 14 de febrero a las 9:00 pm. Nos vemos en ${venue}. Ubicación: ${mapsUrl}`;
+        waBtn.textContent = '✅ Confirmar por WhatsApp';
+      }
+      waBtn.href = `https://wa.me/51994160886?text=${encodeURIComponent(msg)}`;
+    }
 
-    // Cuenta regresiva: ajusta la fecha/hora si lo necesitas
-    // Usamos hora local de Lima (-05:00). Cambia el offset si es otra zona.
-    const target = new Date('2026-02-14T21:00:00-05:00').getTime();
-
+    // Contador
     const ddEl = document.getElementById('dd');
     const hhEl = document.getElementById('hh');
     const mmEl = document.getElementById('mm');
     const ssEl = document.getElementById('ss');
+    const countWrap = document.getElementById('countWrap');
+    const todayBanner = document.getElementById('eventToday');
 
     function pad(n){ return n.toString().padStart(2,'0'); }
+    function sameYMD(a,b){ return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate(); }
 
     function tick(){
-      const now = Date.now();
-      let diff = Math.max(0, target - now);
+      const now = new Date();
+      const tms = target.getTime();
 
-      const days = Math.floor(diff / (1000*60*60*24));
-      diff -= days * (1000*60*60*24);
-      const hours = Math.floor(diff / (1000*60*60));
-      diff -= hours * (1000*60*60);
-      const mins = Math.floor(diff / (1000*60));
-      diff -= mins * (1000*60);
-      const secs = Math.floor(diff / 1000);
+      if (now.getTime() >= tms && now.getTime() <= tms + eventDurationMs){
+        todayBanner.style.display = 'block';
+        countWrap.style.display = 'none';
+        setWhatsAppLink('arriving');
+        return;
+      }
 
-      ddEl.textContent = pad(days);
-      hhEl.textContent = pad(hours);
-      mmEl.textContent = pad(mins);
-      ssEl.textContent = pad(secs);
+      let diff = Math.max(0, tms - now.getTime());
+      const d = Math.floor(diff / (1000*60*60*24)); diff -= d * (1000*60*60*24);
+      const h = Math.floor(diff / (1000*60*60));     diff -= h * (1000*60*60);
+      const m = Math.floor(diff / (1000*60));        diff -= m * (1000*60);
+      const s = Math.floor(diff / 1000);
 
-      if (target - now <= 0) {
-        // Evento llegado: resalta mensaje
-        ddEl.textContent = '00';
-        hhEl.textContent = '00';
-        mmEl.textContent = '00';
-        ssEl.textContent = '00';
+      ddEl.textContent = pad(d);
+      hhEl.textContent = pad(h);
+      mmEl.textContent = pad(m);
+      ssEl.textContent = pad(s);
+
+      countWrap.style.display = 'block';
+
+      if (sameYMD(now, target)){
+        todayBanner.style.display = 'block';
+        setWhatsAppLink('today');
+      } else {
+        todayBanner.style.display = 'none';
+        setWhatsAppLink('default');
       }
     }
     tick();
