@@ -1,108 +1,211 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="vibrant">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#3b82f6" />
   <title>Cumpleaños de Christian Joel López Reyes</title>
   <style>
-    :root{
+    /* Temas: oscuro y vibrante */
+    [data-theme="dark"]{
       --bg:#0b1220; --panel:#0f172aee; --text:#f8fafc; --muted:#cbd5e1;
       --accent1:#ff6b6b; --accent2:#f59e0b; --accent3:#3b82f6; --accent4:#22c55e;
+      --surface: rgba(255,255,255,.06); --surface-border: rgba(255,255,255,.10);
     }
-    *{box-sizing:border-box} html,body{height:100%}
+    /* Vibrante por defecto: más brillo y contraste */
+    [data-theme="vibrant"]{
+      --bg:#0a1840; --panel:#0f172af2; --text:#ffffff; --muted:#e5e7eb;
+      --accent1:#ff7eb3; --accent2:#f59e0b; --accent3:#60a5fa; --accent4:#22c55e;
+      --surface: rgba(255,255,255,.14); --surface-border: rgba(255,255,255,.22);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans";
-      color:var(--text); background: radial-gradient(1200px 800px at 20% 10%,#111827,var(--bg));
-      display:grid; place-items:center; overflow:hidden;
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, #18223f, var(--bg)),
+        radial-gradient(1200px 800px at 80% 90%, #101a36 10%, transparent 70%);
+      display:grid; place-items:center;
+      overflow-x:hidden;
+      padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
     }
+
+    /* Mesh animado con colores más vivos en vibrante */
     .mesh::before,.mesh::after{
-      content:""; position:fixed; inset:-10vmax; filter:blur(70px); opacity:.6; z-index:-2;
+      content:""; position:fixed; inset:-12vmax; filter:blur(70px); opacity:.65; z-index:-2;
       animation: drift 18s ease-in-out infinite alternate;
       background:
         radial-gradient(closest-side at 20% 30%, rgba(245,158,11,.35), transparent 60%),
-        radial-gradient(closest-side at 80% 20%, rgba(59,130,246,.35), transparent 60%),
-        radial-gradient(closest-side at 30% 80%, rgba(255,107,107,.35), transparent 60%);
+        radial-gradient(closest-side at 80% 20%, rgba(96,165,250,.45), transparent 60%),
+        radial-gradient(closest-side at 30% 80%, rgba(255,126,179,.35), transparent 60%);
     }
-    .mesh::after{animation-duration:24s;background:
-      radial-gradient(closest-side at 75% 75%, rgba(34,197,94,.30), transparent 65%),
-      radial-gradient(closest-side at 40% 60%, rgba(245,158,11,.25), transparent 65%)}
-    @keyframes drift{0%{transform:translate3d(-3vw,-2vh,0)}100%{transform:translate3d(2vw,3vh,0) scale(1.06)}}
+    .mesh::after{
+      animation-duration: 24s;
+      background:
+        radial-gradient(closest-side at 75% 75%, rgba(34,197,94,.32), transparent 65%),
+        radial-gradient(closest-side at 40% 60%, rgba(245,158,11,.28), transparent 65%);
+    }
+    @keyframes drift{0%{transform:translate3d(-3vw,-2vh,0) scale(1)}100%{transform:translate3d(2vw,3vh,0) scale(1.06)}}
 
+    /* Card con borde arcoíris animado */
     .card{
-      width:min(920px,92vw); background:var(--panel); border-radius:28px; backdrop-filter: blur(12px);
-      position:relative; box-shadow:0 30px 70px rgba(0,0,0,.55); overflow:hidden;
+      width:min(920px, 92vw);
+      background:var(--panel);
+      border-radius:28px;
+      backdrop-filter: blur(12px);
+      position:relative;
+      box-shadow: 0 30px 70px rgba(0,0,0,.55);
+      overflow:hidden;
     }
     .card::before{
-      content:""; position:absolute; inset:0; padding:1.2px; border-radius:inherit;
+      content:""; position:absolute; inset:0; padding:1.5px; border-radius:inherit;
       background: conic-gradient(from 120deg, var(--accent1), var(--accent2), var(--accent4), var(--accent3), var(--accent1));
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite:xor; mask-composite:exclude; animation:hue 8s linear infinite; pointer-events:none;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      animation: hue 8s linear infinite;
+      pointer-events:none;
     }
     @keyframes hue{to{filter:hue-rotate(360deg)}}
 
     .hero{
-      position:relative; padding:42px 34px 22px;
+      position:relative;
+      padding:42px 22px 20px;
       background:
-        radial-gradient(600px 220px at 85% -60%, rgba(245,158,11,.22), transparent 70%),
-        radial-gradient(600px 220px at 10% -20%, rgba(59,130,246,.22), transparent 70%);
-      border-bottom:1px solid rgba(255,255,255,.08); overflow:hidden;
+        radial-gradient(600px 220px at 85% -60%, rgba(245,158,11,.26), transparent 70%),
+        radial-gradient(600px 220px at 10% -20%, rgba(96,165,250,.28), transparent 70%);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
     }
     .hero .watermark{
-      position:absolute; right:110px; bottom:-24px; font-weight:900;
-      font-size: clamp(120px, 20vw, 200px); line-height:1; color:#ffffff12; text-shadow:0 0 40px rgba(245,158,11,.18);
+      position:absolute; right:110px; bottom:-24px;
+      font-weight:900; font-size: clamp(120px, 21vw, 200px);
+      line-height:1; color:#ffffff18;
+      text-shadow: 0 0 40px rgba(245,158,11,.25);
       pointer-events:none; user-select:none;
     }
-    .title{display:flex; align-items:center; gap:14px; flex-wrap:wrap; font-weight:900;
-      letter-spacing:.2px; line-height:1.15; font-size:clamp(22px,4.2vw,36px); text-shadow:0 2px 18px rgba(59,130,246,.25)}
+
+    .title{
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+      font-weight:900; letter-spacing:.2px; line-height:1.15;
+      font-size: clamp(22px, 4.6vw, 38px);
+      text-shadow: 0 2px 18px rgba(96,165,250,.35);
+    }
     .age-chip{
-      display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border-radius:999px; font-weight:800; font-size:14px;
-      color:#1f2937; background:linear-gradient(90deg,#fde68a,#f59e0b); border:1.5px solid #fcd34d; box-shadow:0 6px 16px rgba(245,158,11,.35);
+      display:inline-flex; align-items:center; gap:6px;
+      padding:8px 12px; border-radius:999px; font-weight:800; font-size:14px;
+      color:#1f2937;
+      background: linear-gradient(90deg,#fde68a,#f59e0b);
+      border:1.5px solid #fcd34d;
+      box-shadow: 0 6px 16px rgba(245,158,11,.45);
     }
 
+    /* Medallón */
     .age-badge{
-      position:absolute; top:22px; right:22px; width:96px; height:96px; border-radius:50%; display:grid; place-items:center;
-      text-align:center; color:#0b1220; font-weight:900;
+      position:absolute; top:18px; right:18px;
+      width:96px; height:96px; border-radius:50%;
+      display:grid; place-items:center; text-align:center;
+      color:#0b1220; font-weight:900;
       background: radial-gradient(120% 120% at 30% 30%, #fffbe6, #f59e0b);
-      border:2px solid #fcd34d; box-shadow:0 12px 28px rgba(245,158,11,.38), inset 0 8px 18px rgba(255,255,255,.45);
-      animation:pulse 2.2s ease-in-out infinite; overflow:hidden; z-index:2;
+      border:2px solid #fcd34d;
+      box-shadow: 0 16px 30px rgba(245,158,11,.42), inset 0 8px 18px rgba(255,255,255,.50);
+      animation: pulse 2.2s ease-in-out infinite;
+      z-index:2;
     }
-    .age-badge::before{content:""; position:absolute; inset:-2px; border-radius:inherit;
-      background:conic-gradient(from 0deg,#fff0 0 60%,#ffffff66 70% 80%,#fff0 100%); animation:spin 6s linear infinite; mix-blend-mode:soft-light}
-    .age-num{font-size:40px; line-height:1; -webkit-text-stroke:.6px #fef3c7; text-shadow:0 1px 10px rgba(0,0,0,.25)}
+    .age-badge::before{
+      content:""; position:absolute; inset:-2px; border-radius:inherit;
+      background: conic-gradient(from 0deg, #fff0 0 60%, #ffffff80 70% 80%, #fff0 100%);
+      animation: spin 6s linear infinite; mix-blend-mode: soft-light;
+    }
+    .age-num{font-size:40px; line-height:1; -webkit-text-stroke:.6px #fef3c7}
     .age-txt{font-size:13px; letter-spacing:.6px; text-transform:uppercase}
-    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}} @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
 
     .subtitle{margin-top:6px; color:var(--muted); font-size:15px}
 
-    .details{display:grid; gap:16px; padding:24px 34px}
+    .details{display:grid; gap:16px; padding:24px 22px}
     .row{display:grid; gap:12px}
     .item{
-      display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:start;
-      padding:12px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.10);
+      display:grid; grid-template-columns: 40px 1fr; gap:12px; align-items:center;
+      padding:14px; border-radius:16px;
+      background: linear-gradient(180deg, var(--surface), rgba(255,255,255,.04));
+      border:1px solid var(--surface-border);
     }
-    .icon{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 0 10px rgba(255,255,255,.06);font-size:18px}
+    .icon{
+      width:40px;height:40px;border-radius:12px;
+      display:grid;place-items:center;
+      background: rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22);
+      box-shadow: inset 0 0 10px rgba(255,255,255,.10);
+      font-size:19px;
+    }
     .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
-    .value{font-size:17px;font-weight:700}
+    .value{font-size:18px; font-weight:800}
 
-    .cta{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:10px 34px 28px}
-    .btn{appearance:none;border:none;cursor:pointer;border-radius:14px;padding:14px 18px;font-weight:800;font-size:16px;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:transform .12s, box-shadow .12s, filter .12s}
-    .btn-primary{color:#041a10;background:linear-gradient(90deg,#22c55e,#86efac);box-shadow:0 10px 24px rgba(34,197,94,.35)}
-    .btn-secondary{color:#0b1220;background:linear-gradient(90deg,#3b82f6,#93c5fd);box-shadow:0 10px 24px rgba(59,130,246,.35)}
-    .btn:hover{transform:translateY(-2px);filter:brightness(1.05)} .btn:active{transform:translateY(0)}
+    .cta{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:8px 22px 24px}
+    .btn{
+      appearance:none;border:none;cursor:pointer;
+      border-radius:16px;padding:16px 18px;font-weight:900;font-size:17px;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      text-decoration:none; transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    }
+    .btn-primary{color:#041a10;background:linear-gradient(90deg,#22c55e,#86efac);box-shadow:0 12px 26px rgba(34,197,94,.45)}
+    .btn-secondary{color:#0b1220;background:linear-gradient(90deg,#3b82f6,#93c5fd);box-shadow:0 12px 26px rgba(96,165,250,.45)}
+    .btn:hover{transform:translateY(-2px); filter:brightness(1.06)}
+    .btn:active{transform:translateY(0)}
 
-    .payments{padding:0 34px 26px;border-top:1px dashed rgba(255,255,255,.12);color:var(--muted);font-size:14px}
+    .payments{padding:0 22px 24px;border-top:1px dashed rgba(255,255,255,.16);color:var(--muted);font-size:14px}
     .chips{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
-    .chip{padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;border:1.5px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08)}
-    .note{padding:0 34px 30px;color:var(--muted);font-size:13px}
+    .chip{padding:9px 12px;border-radius:999px;font-weight:800;font-size:13px;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.14)}
 
+    .note{padding:0 22px 30px;color:var(--muted);font-size:13px}
+
+    /* Confetti: menos en móvil para ligereza */
     .confetti{position:fixed;inset:0;pointer-events:none;z-index:-1}
-    .piece{position:absolute;width:10px;height:16px;transform:translateY(-120vh) rotate(0deg);animation:fall var(--dur) linear var(--delay) infinite;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+    .piece{
+      position:absolute;width:10px;height:16px;
+      transform:translateY(-120vh) rotate(0deg);
+      animation: fall var(--dur) linear var(--delay) infinite;
+      border-radius:3px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
     @keyframes fall{0%{transform:translateY(-12vh) rotate(0deg)}100%{transform:translateY(110vh) rotate(720deg)}}
-    @media (max-width:560px){.cta{grid-template-columns:1fr}.age-badge{top:16px; right:16px; width:82px; height:82px}.age-num{font-size:34px}}
+
+    /* Responsive móvil */
+    @media (max-width:560px){
+      .card{width:100%; border-radius:22px}
+      .hero{padding:28px 18px 18px}
+      .title{justify-content:center; text-align:center; font-size: clamp(22px, 6vw, 30px)}
+      .age-chip{margin-top:6px}
+      .age-badge{top:16px; right:16px; width:88px; height:88px}
+      .age-num{font-size:36px}
+      .hero .watermark{display:none} /* Oculta la marca para no saturar en móvil */
+      .details{padding:20px 18px}
+      .item{grid-template-columns:36px 1fr; padding:12px}
+      .icon{width:36px;height:36px}
+      .value{font-size:16px}
+      .cta{grid-template-columns:1fr; padding:10px 18px 22px}
+      .btn{padding:14px 16px; font-size:16px}
+      .payments{padding:0 18px 22px}
+      .note{padding:0 18px 26px}
+    }
+
+    /* Botón toggle de tema */
+    .mode-toggle{
+      position:fixed; top:14px; right:14px; z-index:3;
+      padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.28);
+      background: rgba(255,255,255,.18); color:#111; font-weight:800; font-size:13px;
+      backdrop-filter: blur(8px); cursor:pointer;
+    }
   </style>
 </head>
 <body class="mesh">
+  <button id="themeToggle" class="mode-toggle" aria-label="Cambiar tema">🌞 Vibrante</button>
   <div class="confetti" aria-hidden="true"></div>
 
   <main class="card" role="region" aria-label="Invitación de cumpleaños">
@@ -191,11 +294,15 @@
   </main>
 
   <script>
+    // Modo de movimiento reducido
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Confetti: menos cantidad en móvil
+    const isMobile = window.matchMedia('(max-width: 560px)').matches;
     if(!reduced){
       const container = document.querySelector('.confetti');
-      const colors = ['#ff6b6b','#f59e0b','#3b82f6','#22c55e','#a78bfa','#f472b6'];
-      const pieces = 80;
+      const colors = ['#ff7eb3','#f59e0b','#60a5fa','#22c55e','#a78bfa','#f472b6'];
+      const pieces = isMobile ? 40 : 90;
       for(let i=0;i<pieces;i++){
         const el = document.createElement('div');
         el.className = 'piece';
@@ -210,10 +317,19 @@
         el.style.transform = `translateY(-120vh) rotate(${Math.random()*360}deg)`;
         el.style.setProperty('--delay', delay + 's');
         el.style.setProperty('--dur', dur + 's');
-        el.style.opacity = (0.8 + Math.random()*0.2).toFixed(2);
+        el.style.opacity = (0.85 + Math.random()*0.15).toFixed(2);
         container.appendChild(el);
       }
     }
+
+    // Toggle de tema Vibrante / Oscuro
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'vibrant' ? 'dark' : 'vibrant';
+      html.setAttribute('data-theme', next);
+      toggle.textContent = next === 'vibrant' ? '🌞 Vibrante' : '🌙 Oscuro';
+    });
   </script>
 </body>
 </html>
