@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cumpleaños de Christian Joel López Reyes</title>
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f172aee; --text:#f8fafc; --muted:#cbd5e1;
+      --accent1:#ff6b6b; --accent2:#f59e0b; --accent3:#3b82f6; --accent4:#22c55e;
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans";
+      color:var(--text); background: radial-gradient(1200px 800px at 20% 10%,#111827,var(--bg));
+      display:grid; place-items:center; overflow:hidden;
+    }
+    .mesh::before,.mesh::after{
+      content:""; position:fixed; inset:-10vmax; filter:blur(70px); opacity:.6; z-index:-2;
+      animation: drift 18s ease-in-out infinite alternate;
+      background:
+        radial-gradient(closest-side at 20% 30%, rgba(245,158,11,.35), transparent 60%),
+        radial-gradient(closest-side at 80% 20%, rgba(59,130,246,.35), transparent 60%),
+        radial-gradient(closest-side at 30% 80%, rgba(255,107,107,.35), transparent 60%);
+    }
+    .mesh::after{animation-duration:24s;background:
+      radial-gradient(closest-side at 75% 75%, rgba(34,197,94,.30), transparent 65%),
+      radial-gradient(closest-side at 40% 60%, rgba(245,158,11,.25), transparent 65%)}
+    @keyframes drift{0%{transform:translate3d(-3vw,-2vh,0)}100%{transform:translate3d(2vw,3vh,0) scale(1.06)}}
+
+    .card{
+      width:min(920px,92vw); background:var(--panel); border-radius:28px; backdrop-filter: blur(12px);
+      position:relative; box-shadow:0 30px 70px rgba(0,0,0,.55); overflow:hidden;
+    }
+    .card::before{
+      content:""; position:absolute; inset:0; padding:1.2px; border-radius:inherit;
+      background: conic-gradient(from 120deg, var(--accent1), var(--accent2), var(--accent4), var(--accent3), var(--accent1));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor; mask-composite:exclude; animation:hue 8s linear infinite; pointer-events:none;
+    }
+    @keyframes hue{to{filter:hue-rotate(360deg)}}
+
+    .hero{
+      position:relative; padding:42px 34px 22px;
+      background:
+        radial-gradient(600px 220px at 85% -60%, rgba(245,158,11,.22), transparent 70%),
+        radial-gradient(600px 220px at 10% -20%, rgba(59,130,246,.22), transparent 70%);
+      border-bottom:1px solid rgba(255,255,255,.08); overflow:hidden;
+    }
+    .hero .watermark{
+      position:absolute; right:110px; bottom:-24px; font-weight:900;
+      font-size: clamp(120px, 20vw, 200px); line-height:1; color:#ffffff12; text-shadow:0 0 40px rgba(245,158,11,.18);
+      pointer-events:none; user-select:none;
+    }
+    .title{display:flex; align-items:center; gap:14px; flex-wrap:wrap; font-weight:900;
+      letter-spacing:.2px; line-height:1.15; font-size:clamp(22px,4.2vw,36px); text-shadow:0 2px 18px rgba(59,130,246,.25)}
+    .age-chip{
+      display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border-radius:999px; font-weight:800; font-size:14px;
+      color:#1f2937; background:linear-gradient(90deg,#fde68a,#f59e0b); border:1.5px solid #fcd34d; box-shadow:0 6px 16px rgba(245,158,11,.35);
+    }
+
+    .age-badge{
+      position:absolute; top:22px; right:22px; width:96px; height:96px; border-radius:50%; display:grid; place-items:center;
+      text-align:center; color:#0b1220; font-weight:900;
+      background: radial-gradient(120% 120% at 30% 30%, #fffbe6, #f59e0b);
+      border:2px solid #fcd34d; box-shadow:0 12px 28px rgba(245,158,11,.38), inset 0 8px 18px rgba(255,255,255,.45);
+      animation:pulse 2.2s ease-in-out infinite; overflow:hidden; z-index:2;
+    }
+    .age-badge::before{content:""; position:absolute; inset:-2px; border-radius:inherit;
+      background:conic-gradient(from 0deg,#fff0 0 60%,#ffffff66 70% 80%,#fff0 100%); animation:spin 6s linear infinite; mix-blend-mode:soft-light}
+    .age-num{font-size:40px; line-height:1; -webkit-text-stroke:.6px #fef3c7; text-shadow:0 1px 10px rgba(0,0,0,.25)}
+    .age-txt{font-size:13px; letter-spacing:.6px; text-transform:uppercase}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}} @keyframes spin{to{transform:rotate(360deg)}}
+
+    .subtitle{margin-top:6px; color:var(--muted); font-size:15px}
+
+    .details{display:grid; gap:16px; padding:24px 34px}
+    .row{display:grid; gap:12px}
+    .item{
+      display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:start;
+      padding:12px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .icon{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 0 10px rgba(255,255,255,.06);font-size:18px}
+    .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+    .value{font-size:17px;font-weight:700}
+
+    .cta{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:10px 34px 28px}
+    .btn{appearance:none;border:none;cursor:pointer;border-radius:14px;padding:14px 18px;font-weight:800;font-size:16px;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:transform .12s, box-shadow .12s, filter .12s}
+    .btn-primary{color:#041a10;background:linear-gradient(90deg,#22c55e,#86efac);box-shadow:0 10px 24px rgba(34,197,94,.35)}
+    .btn-secondary{color:#0b1220;background:linear-gradient(90deg,#3b82f6,#93c5fd);box-shadow:0 10px 24px rgba(59,130,246,.35)}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.05)} .btn:active{transform:translateY(0)}
+
+    .payments{padding:0 34px 26px;border-top:1px dashed rgba(255,255,255,.12);color:var(--muted);font-size:14px}
+    .chips{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+    .chip{padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;border:1.5px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08)}
+    .note{padding:0 34px 30px;color:var(--muted);font-size:13px}
+
+    .confetti{position:fixed;inset:0;pointer-events:none;z-index:-1}
+    .piece{position:absolute;width:10px;height:16px;transform:translateY(-120vh) rotate(0deg);animation:fall var(--dur) linear var(--delay) infinite;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+    @keyframes fall{0%{transform:translateY(-12vh) rotate(0deg)}100%{transform:translateY(110vh) rotate(720deg)}}
+    @media (max-width:560px){.cta{grid-template-columns:1fr}.age-badge{top:16px; right:16px; width:82px; height:82px}.age-num{font-size:34px}}
+  </style>
+</head>
+<body class="mesh">
+  <div class="confetti" aria-hidden="true"></div>
+
+  <main class="card" role="region" aria-label="Invitación de cumpleaños">
+    <section class="hero">
+      <div class="watermark" aria-hidden="true">42</div>
+      <div class="title">
+        <span>🎉 Cumpleaños de Christian Joel López Reyes</span>
+        <span class="age-chip">42 años</span>
+      </div>
+
+      <div class="age-badge" aria-label="42 años">
+        <div class="age-num">42</div>
+        <div class="age-txt">años</div>
+      </div>
+
+      <div class="subtitle">¡Celebremos en familia y con buenas vibras!</div>
+    </section>
+
+    <section class="details">
+      <div class="row">
+        <div class="item" aria-label="Fecha y hora">
+          <div class="icon">📅</div>
+          <div>
+            <div class="label">Fecha y hora</div>
+            <div class="value">14 de febrero · 9:00 pm</div>
+          </div>
+        </div>
+
+        <div class="item" aria-label="Lugar">
+          <div class="icon">📍</div>
+          <div>
+            <div class="label">Lugar</div>
+            <div class="value">
+              Av. Nicolás Arriola 2131, San Luis ·
+              <a href="https://www.google.com/maps/search/?api=1&query=Avenida+Nicolas+Arriola+2131,+San+Luis"
+                 target="_blank" rel="noopener" style="color:#93c5fd;text-decoration:underline">Ver ubicación</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" aria-label="Plan">
+          <div class="icon">🎂</div>
+          <div>
+            <div class="label">Plan</div>
+            <div class="value">Música, piqueos y pastel. ¡Ven con ganas de celebrar!</div>
+          </div>
+        </div>
+
+        <div class="item" aria-label="Regalos">
+          <div class="icon">🎁</div>
+          <div>
+            <div class="label">Regalos</div>
+            <div class="value">Regalito bienvenido 😉 También Yape, Plin y transferencia (jiji).</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <!-- Tu número: +51 994160886 -->
+      <a class="btn btn-primary"
+         href="https://wa.me/51994160886?text=Hola!%20Confirmo%20mi%20asistencia%20al%20cumple%20de%20Christian%20Joel%20L%C3%B3pez%20Reyes%20(14%20de%20febrero%20-%209pm)."
+         target="_blank" rel="noopener" aria-label="Confirmar asistencia por WhatsApp">
+        ✅ Confirmar por WhatsApp
+      </a>
+      <a class="btn btn-secondary"
+         href="https://www.google.com/maps/search/?api=1&query=Avenida+Nicolas+Arriola+2131,+San+Luis"
+         target="_blank" rel="noopener" aria-label="Abrir ubicación en Google Maps">
+        📍 Abrir Maps
+      </a>
+    </section>
+
+    <section class="payments">
+      <p><strong>Opciones de regalo y pago</strong></p>
+      <div class="chips">
+        <span class="chip">🎁 Regalito</span>
+        <span class="chip">💜 Yape</span>
+        <span class="chip">💙 Plin</span>
+        <span class="chip">💳 Transferencia</span>
+      </div>
+    </section>
+
+    <section class="note">
+      Para compartir por WhatsApp: abre esta página y toma una captura, o envía el enlace si la subes a la web.
+    </section>
+  </main>
+
+  <script>
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduced){
+      const container = document.querySelector('.confetti');
+      const colors = ['#ff6b6b','#f59e0b','#3b82f6','#22c55e','#a78bfa','#f472b6'];
+      const pieces = 80;
+      for(let i=0;i<pieces;i++){
+        const el = document.createElement('div');
+        el.className = 'piece';
+        const size = 8 + Math.random()*10;
+        const left = Math.random()*100;
+        const delay = Math.random()*6;
+        const dur = 6 + Math.random()*6;
+        el.style.width = size + 'px';
+        el.style.height = (size*1.6) + 'px';
+        el.style.left = left + 'vw';
+        el.style.background = colors[i % colors.length];
+        el.style.transform = `translateY(-120vh) rotate(${Math.random()*360}deg)`;
+        el.style.setProperty('--delay', delay + 's');
+        el.style.setProperty('--dur', dur + 's');
+        el.style.opacity = (0.8 + Math.random()*0.2).toFixed(2);
+        container.appendChild(el);
+      }
+    }
+  </script>
+</body>
+</html>
